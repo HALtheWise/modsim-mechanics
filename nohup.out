@@ -1,0 +1,9 @@
+[0000000001d8b118] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[00000000009e5118] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[00000000009f8e08] core playlist: stopping playback
+Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
+Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
+Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
+Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
+Failed to open VDPAU backend libvdpau_i965.so: cannot open shared object file: No such file or directory
+vlc: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
