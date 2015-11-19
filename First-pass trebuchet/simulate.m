@@ -3,6 +3,9 @@
 %     theta1dot = stocks(3);
 %     theta2dot = stocks(4);
 
-stocks = [0, 0, 0, 0];
+stocks = [(4*pi/3), 0, 0, 0];
 
-ode45(@flows, [0, 10], stocks)
+[Times, Stocks] = ode45(@flows, [0, 1], stocks);
+
+legend('theta1', 'theta2', 'theta1dot', 'theta2dot')
+
