@@ -12,5 +12,5 @@ function Parametersweep()
     %% Plotting
     fplot(@testPoint, [-120 120], 5e-3);
     
-    keyboard
+    %keyboard
 end
