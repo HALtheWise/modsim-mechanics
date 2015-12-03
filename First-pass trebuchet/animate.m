@@ -1,12 +1,12 @@
+function res = animate(Times, Stocks, params)
+
 %% Calculating joint coordinates for animation purposes
-l1 = .5
-l2 = 1
-l3 = 1.5
+
 
 % It seems more natural for this data to be stored as P1 (containing x and
 % y coords for the first point, P2 (etc.)
-x = [l2*cos(Stocks(:,1)), l2*cos(Stocks(:,1))+l3*cos(Stocks(:,2)), l1*-cos(Stocks(:,1))];
-y = [l2*sin(Stocks(:,1)), l2*sin(Stocks(:,1))+l3*sin(Stocks(:,2)), l1*-sin(Stocks(:,1))];
+x = [params.l2*cos(Stocks(:,1)), params.l2*cos(Stocks(:,1))+params.l2*cos(Stocks(:,2)), params.l1*-cos(Stocks(:,1))];
+y = [params.l2*sin(Stocks(:,1)), params.l2*sin(Stocks(:,1))+params.l2*sin(Stocks(:,2)), params.l1*-sin(Stocks(:,1))];
 
 %% Convert radians to degrees
 angles = Stocks(:,1:2) * (180/pi);
@@ -25,7 +25,7 @@ subplot(2,1,2)
 hh2 = plot([0, 0, x(1,1);x(1,3), x(1,1), x(1,2)], [0, 0, y(1,1);y(1,3), y(1,1), y(1,2)], ...
     '.-', 'MarkerSize', 20, 'LineWidth', 2);
 axis equal
-axis([-l2-l3 l2+l3 -l2-l3 l2+l3])
+axis([-params.l2-params.l2 params.l2+params.l2 -params.l2-params.l2 params.l2+params.l2])
 ht = title(sprintf('Time: %0.2f sec', Times(1)));
 
 %% Get figure size
@@ -61,3 +61,4 @@ end
 
 %% Create animated GIF
 % imwrite(mov, map, 'animation.gif', 'DelayTime', 0, 'LoopCount', inf)
+end
