@@ -10,7 +10,7 @@ function p = parameters()
     p.l3 = 1.5;
     p.g  = 9.8;
     
-    p.pinAngle = 180 *pi/180;
+    p.pinAngle = -40 *pi/180;
 
 end
 

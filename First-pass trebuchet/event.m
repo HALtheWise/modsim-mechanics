@@ -3,7 +3,7 @@ function [value,isterminal,direction] = event(~,y,params)
 %   Detailed explanation goes here
     isterminal = 1;
     direction = 0;
-    value = mod( y(1) - y(2), 2*pi) - params.pinAngle;
-
+    value = mod( y(1) - y(2) + pi, 2*pi) - pi - params.pinAngle;
+    
 end
 
