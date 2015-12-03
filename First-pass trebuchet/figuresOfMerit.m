@@ -17,6 +17,7 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
     V1 =        [p.l1*-cos(theta1dot); p.l1*-sin(theta1dot)];
     V2 =        [p.l2*cos(theta1dot); p.l2*sin(theta1dot)];
     V3 = V2 +   [p.l3*cos(theta2dot); p.l3*sin(theta2dot)];
+    % WRONG
     
     fom.releaseHeight = P3(2);      % meters
     fom.releaseVelocity = V3;       % meters/s vector
