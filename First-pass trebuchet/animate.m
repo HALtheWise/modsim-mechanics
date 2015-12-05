@@ -5,7 +5,7 @@ function res = animate(Times, Stocks, params)
     theta1 = Stocks(:,1);
     theta2 = Stocks(:,2);
     
-    P0 =        zeros(45, 2);
+    P0 =        zeros(length(Stocks(:,1)), 2);
     P1 =        [p.l1*-cos(theta1), p.l1*-sin(theta1)];
     P2 =        [p.l2*cos(theta1), p.l2*sin(theta1)];
     P3 = P2 +   [p.l3*cos(theta2), p.l3*sin(theta2)];
