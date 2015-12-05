@@ -2,6 +2,9 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
 %FIGURESOFMERIT Given the output of a 
 %   Detailed explanation goes here
 
+    global totalFOMtime;
+    tic;
+
     p = params;
 
     theta1 = Stocks(end,1);
@@ -23,5 +26,7 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
     fom.releaseTime = Times(end);   % seconds
     
     fom.flightDistance = baseball_simulation(P3, V3, params);
+    
+    totalFOMtime = totalFOMtime + toc; %Track the time in FOM calculations
 end
 

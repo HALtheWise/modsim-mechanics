@@ -12,11 +12,13 @@ function [ distance ] = baseball_simulation( P0, V0, params )
     function [res] = bflows(~, Y)
         P = Y(1:2);
         V = Y(3:4);
+        
         gravity = params.g * [0; -1];
+        drag = -norm(V) * V * params.dragConstant; % C * |V|^2 in direction of -V
         
         res = [0;0;0;0];
         res(1:2) = V;
-        res(3:4) = gravity;
+        res(3:4) = gravity+drag;
     end
     
     function [value,isterminal,direction] = bevent(~, y)
