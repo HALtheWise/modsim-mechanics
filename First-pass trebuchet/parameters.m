@@ -19,7 +19,7 @@ function p = parameters()
     % Projectile parameters
     p.distanceToPool = 500; %meters
     p.poolradius = 2;       %meters
-    p.pivotHeight = 10;     %meters elevation of main trebuchet pivot
+    p.pivotHeight = 2;     %meters elevation of main trebuchet pivot
     p.dragConstant = 1/2*1.2*.3*0.6; % Product of 1/2*air_mass_density*Area*Drag Coefficient
     
 end

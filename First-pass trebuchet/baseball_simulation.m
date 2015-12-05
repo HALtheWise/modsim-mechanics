@@ -1,4 +1,4 @@
-function [ distance ] = baseball_simulation( P0, V0, params )
+function [ distance, flightTime ] = baseball_simulation( P0, V0, params )
 %BASEBALL_SIMULATION Summary of this function goes here
 %   Detailed explanation goes here
     
@@ -30,7 +30,11 @@ function [ distance ] = baseball_simulation( P0, V0, params )
     options = odeset('Events', @bevent);
     [Times, Stocks] = ode45(@bflows, [0 1e10], Y0, options);
     
+%    plot(Stocks(:,1), Stocks(:,2));
+%    disp(Stocks);
+
     distance = Stocks(end, 1);
+    flightTime = Times(end);
 
 end
 

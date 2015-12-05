@@ -9,7 +9,7 @@ function Parametersweep()
         params.pinAngle = pinAngle*pi/180;
         [Times, Stocks] = simulate(params);
         fom = figuresOfMerit(Times, Stocks, params);
-        res = fom.releaseSpeed;
+        res = fom.flightDistance;
     end
 
     %% Plotting
