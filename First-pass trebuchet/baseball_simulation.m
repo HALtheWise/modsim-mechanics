@@ -4,7 +4,7 @@ function [ distance ] = baseball_simulation( P0, V0, params )
     
     Y0 = [P0; V0];
     
-    if P0(2) <= 0
+    if P0(2) + params.pivotHeight <= 0
        distance = 0;
        return
     end
@@ -22,7 +22,7 @@ function [ distance ] = baseball_simulation( P0, V0, params )
     end
     
     function [value,isterminal,direction] = bevent(~, y)
-        value = y(2);
+        value = y(2) + params.pivotHeight;
         isterminal = 1;
         direction = -1;
     end
