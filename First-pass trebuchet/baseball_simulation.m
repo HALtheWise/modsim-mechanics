@@ -1,4 +1,4 @@
-function [ distance, flightTime ] = baseball_simulation( P0, V0, params )
+function [ distance, flightTime, Times, Stocks ] = baseball_simulation( P0, V0, params )
 %BASEBALL_SIMULATION Summary of this function goes here
 %   Detailed explanation goes here
     
@@ -7,6 +7,8 @@ function [ distance, flightTime ] = baseball_simulation( P0, V0, params )
     if P0(2) + params.pivotHeight <= 0
        distance = 0;
        flightTime = 0;
+       Times = [];
+       Stocks= [];
        return
     end
     

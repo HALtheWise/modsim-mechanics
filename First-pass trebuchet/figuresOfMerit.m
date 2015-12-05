@@ -25,7 +25,8 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
     fom.releaseSpeed = norm(V3);    % meters/s
     fom.releaseTime = Times(end);   % seconds
     
-    [fom.flightDistance, fom.flightTime] = baseball_simulation(P3, V3, params);
+    [fom.flightDistance, fom.flightTime, fom.baseballTimes, fom.baseballStocks]...
+        = baseball_simulation(P3, V3, params);
     
     totalFOMtime = totalFOMtime + toc; %Track the time in FOM calculations
 end
