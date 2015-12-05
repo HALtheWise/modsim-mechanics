@@ -7,10 +7,10 @@ function p = parameters()
     p.m2 = 1;
     p.m3 = 1;
     p.l1 = .5;
-    p.l2 = 1;
-    p.l3 = 1.8;
+    p.l2 = 3.3;
+    p.l3 = 4;
     
-    p.pinAngle = -10 *pi/180;
+    p.pinAngle = -15 *pi/180;
     
     % Universe parameters
     p.g  = 9.8;

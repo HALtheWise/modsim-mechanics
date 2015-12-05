@@ -6,6 +6,7 @@ function [ distance, flightTime ] = baseball_simulation( P0, V0, params )
     
     if P0(2) + params.pivotHeight <= 0
        distance = 0;
+       flightTime = 0;
        return
     end
     
