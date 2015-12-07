@@ -28,6 +28,16 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
     [fom.flightDistance, fom.flightTime, fom.baseballTimes, fom.baseballStocks]...
         = baseball_simulation(P3, V3, params);
     
+    fom.missAmount = abs(fom.flightDistance - params.distanceToPool);
+    if fom.missAmount < - params.poolradius
+        fom.result = 'short';
+    elseif fom.missAmount > params.poolradius
+        fom.result = 'long';
+    else
+        fom.result = 'good shot';
+    end
+
+    
     totalFOMtime = totalFOMtime + toc; %Track the time in FOM calculations
 end
 
