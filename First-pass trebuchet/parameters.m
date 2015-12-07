@@ -3,14 +3,14 @@ function p = parameters()
 %   Detailed explanation goes here
     
     % Trebuchet parameters
-    p.m1 = 100;
-    p.m2 = 1;
-    p.m3 = 1;
-    p.l1 = .5;
-    p.l2 = 3.3;
-    p.l3 = 4;
+    p.m1 = 10000; %10 ton weight 
+    p.m2 = 100;
+    p.m3 = 80.7; %Average person
+    p.l1 = 1;
+    p.l2 = 10;
+    p.l3 = 14.76;
     
-    p.pinAngle = -15 *pi/180;
+    p.pinAngle = -30 *pi/180;
     
     % Universe parameters
     p.g  = 9.8;

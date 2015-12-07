@@ -8,9 +8,7 @@ function X_Optimizer()
         params = parameters();
         
         params.pinAngle = controls(1);
-        %params.l1 = controls(2);
-        params.l2 = controls(2);
-        params.l3 = controls(3);
+        params.l3 = controls(2);
         
         [Times, Stocks] = simulate(params);
         fom = figuresOfMerit(Times, Stocks, params);
@@ -19,7 +17,7 @@ function X_Optimizer()
 
     %% Guess
     params = parameters();
-    guess = [params.pinAngle, params.l2, params.l3];
+    guess = [params.pinAngle, params.l3];
 
     %% Optimize
     optimal = fminsearch(@testPoint, guess)

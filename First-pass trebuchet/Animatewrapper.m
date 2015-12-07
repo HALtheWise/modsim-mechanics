@@ -1,6 +1,6 @@
 params = parameters();
 
-params.pinAngle = -20*pi/180;
+%params.pinAngle = -10*pi/180;
 
 [Times, Stocks] = simulate(params);
 
