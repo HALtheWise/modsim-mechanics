@@ -15,10 +15,17 @@ DenseMasses = linspace(min(Masses), max(Masses), 500);
 DenseResults = interp2(Angles, Masses, SparseResults, Angles, DenseMasses', 'cubic');
 
 %% Plotting
-
+clf
+hold on
 params = parameters();
-contour(Angles, DenseMasses, DenseResults, ...
-    [params.distanceToPool - params.poolradius, params.distanceToPool + params.poolradius])
+[C1, h1] = contour(Angles, DenseMasses, DenseResults, ...
+    [params.distanceToPool - params.poolradius,params.distanceToPool - params.poolradius], 'k');
+[C2, h2] = contour(Angles, DenseMasses, DenseResults, ...
+    [params.distanceToPool + params.poolradius, params.distanceToPool + params.poolradius], 'k');
+
+fill(C1(1,2:end), C1(2,2:end), 'green')
+fill(C2(1,2:end), C2(2,2:end), 'red')
+set(gca, 'Color', 'yellow')
 
 %mycmap = [0 0 0;0 1 0;0 0 0];
 %colormap(mycmap);
