@@ -1,12 +1,12 @@
 %% Calculating
-Masses = linspace(0,100,20);
-Angles = linspace(-100,0,1000)*pi/180;
+Masses = linspace(1,100,20);
+Angles = linspace(-100,0,500)*pi/180;
 Results = zeros(length(Masses), length(Angles));
 
 for mass = 1:length(Masses)
     params = parameters();
     params.m3 = Masses(mass);
-    Throwdists = Parametersweep(Angles, params);
+    Throwdists = X_PinAngleSweep(Angles, params);
     Results(mass, :) = Throwdists;
 end
 

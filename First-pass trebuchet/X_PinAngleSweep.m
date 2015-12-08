@@ -3,8 +3,8 @@ function [Distances] = X_PinAngleSweep(testpoints, paramsIn)
 % specified by paramsIn, except with pinAngle replaced with each value in
 % testpoints.
 
-    global totalFOMtime;
-    totalFOMtime = 0;
+    %global totalFOMtime;
+    %totalFOMtime = 0;
   
     global params
     %% Simulation
@@ -54,7 +54,7 @@ function [Distances] = X_PinAngleSweep(testpoints, paramsIn)
     end
 
     %% Plotting
-    [X, Y] = fplot(@testPoint, [min(testpoints) max(testpoints)], 5e-2);
+    [X, Y] = fplot(@testPoint, [min(testpoints) - 0.1, max(testpoints)+ 0.1], 5e-2);
     
     if nargout == 0
         plot(X*180/pi,Y)
