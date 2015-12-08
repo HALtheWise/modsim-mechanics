@@ -1,4 +1,7 @@
-function [res_fun, X, Y] = Parametersweep(ridermass)
+function [Distances] = Parametersweep(testpoints, paramsIn)
+% Gives the distances that the trebuchet will throw with the configuration
+% specified by paramsIn, except with pinAngle replaced with each value in
+% testpoints.
 
     global totalFOMtime;
     totalFOMtime = 0;
@@ -6,11 +9,11 @@ function [res_fun, X, Y] = Parametersweep(ridermass)
     args = nargin;
     
     %% Simulation
-    function res = testPoint(pinAngle)
-        params = parameters();
-        
-        if args > 0
-            params.m3=ridermass;
+    function res = testPoint(pinAngle)        
+        if args > 1
+            params = paramsIn;
+        else
+            params = parameters();
         end
         params.pinAngle = pinAngle*pi/180;
         [Times, Stocks] = simulate(params);
@@ -27,11 +30,11 @@ function [res_fun, X, Y] = Parametersweep(ridermass)
         plot(X,Y)
     end
     
-    pp = spline(X, Y);    
+    pp = spline(X, Y);
     function throwdist = interpolator(pinangle)
         throwdist = ppval(pp, pinangle);
     end
 
-    res_fun = @interpolator;
+    Distances = arrayfun(@interpolator, testpoints);
     %keyboard
 end
