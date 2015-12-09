@@ -1,7 +1,8 @@
 %% Run animation
 
 params = parameters()
-% params.pinAngle = 30*pi/180;
+%params.pinAngle = 180*pi/180;
+params.m3=0;
 [Times, Stocks] = simulate(params);
 
 %% Unpack constants from params into the local workspace for Mathematica
@@ -44,4 +45,5 @@ plot(Times, KEbar+KErider+PEbar+PErider, 'k', 'LineWidth', 4);
 
 xlabel('Time (s)', 'FontSize', 18)
 ylabel('Energy (J)', 'FontSize', 18)
+title('m3 = 0 [no rider]', 'FontSize', 20)
 legend({'Beam KE', 'Rider KE', 'Beam PE', 'Rider PE', 'Total Energy'}, 'FontSize', 16)

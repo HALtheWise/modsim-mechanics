@@ -5,6 +5,6 @@ function [Times, Stocks] = simulate(params)
     
     options = odeset('Events', @(t,y) event(t,y,params), 'RelTol', 1e-4);
 
-    [Times, Stocks] = ode45(@(t, y) flows(t, y, params), [0, 50], y0, options);
+    [Times, Stocks] = ode45(@(t, y) flows(t, y, params), [0, 20], y0, options);
     
 end

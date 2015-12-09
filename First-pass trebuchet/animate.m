@@ -32,7 +32,7 @@ subplot(2,1,2)
 hh2 = plot([x(1,1), x(1,2), x(1,3);x(1,2), x(1,3), x(1,4)], [y(1,1), y(1,2), y(1,3);y(1,2), y(1,3), y(1,4)], ...
     '.-', 'MarkerSize', 20, 'LineWidth', 2);
 axis equal
-axis([-p.l2-p.l2 p.l2+p.l2 -p.l2-p.l2 p.l2+p.l2])
+axis((p.l2+p.l3).*[-1 1 -1 1])
 ht = title(sprintf('Time: %0.2f sec', Times(1)));
 
 %% Get figure size
