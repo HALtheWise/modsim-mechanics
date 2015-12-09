@@ -7,18 +7,18 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
 
     p = params;
 
-    theta1 = Stocks(end,1);
-    theta2 = Stocks(end,2);
+    theta1 = Stocks(:,1);
+    theta2 = Stocks(:,2);
     
-    theta1dot = Stocks(end,3);
-    theta2dot = Stocks(end,4);
+    theta1dot = Stocks(:,3);
+    theta2dot = Stocks(:,4);
     
-    %P1 =        [p.l1*-cos(theta1); p.l1*-sin(theta1)];
-    P2 =        [p.l2*cos(theta1); p.l2*sin(theta1)];
-    P3 = P2 +   [p.l3*cos(theta2); p.l3*sin(theta2)];
+    %P1 =        [p.l1*-cos(theta1(end)); p.l1*-sin(theta1(end))];
+    P2 =        [p.l2*cos(theta1(end)); p.l2*sin(theta1(end))];
+    P3 = P2 +   [p.l3*cos(theta2(end)); p.l3*sin(theta2(end))];
     
-    V3 =    [(-1).*p.l2.*sin(theta1).*theta1dot+(-1).*p.l3.*sin(theta2).*theta2dot; ...
-            p.l2.*cos(theta1).*theta1dot+p.l3.*cos(theta2).*theta2dot];
+    V3 =    [(-1).*p.l2.*sin(theta1(end)).*theta1dot(end)+(-1).*p.l3.*sin(theta2(end)).*theta2dot(end); ...
+            p.l2.*cos(theta1(end)).*theta1dot(end)+p.l3.*cos(theta2(end)).*theta2dot(end)];
     
     fom.releaseHeight = P3(2);      % meters
     fom.releaseVelocity = V3;       % meters/s vector
