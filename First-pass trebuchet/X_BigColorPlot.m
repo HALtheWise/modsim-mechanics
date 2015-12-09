@@ -1,5 +1,5 @@
 %% Calculating
-Masses = linspace(1,100,20);
+Masses = linspace(1,100,50);
 Angles = linspace(-100,0,500)*pi/180;
 SparseResults = zeros(length(Masses), length(Angles));
 
@@ -25,8 +25,8 @@ params = parameters();
 [C2, h2] = contour(Angles, DenseMasses, DenseResults, ...
     [params.distanceToPool + params.poolradius, params.distanceToPool + params.poolradius], 'k');
 
-h1.LineWidth = 0;
-h2.LineWidth = 0;
+% h1.LineWidth = 0;
+% h2.LineWidth = 0;
 
 fill(C1(1,2:end), C1(2,2:end), 'green')
 fill(C2(1,2:end), C2(2,2:end), [255,99,71] ./ 255)
@@ -36,7 +36,7 @@ set(gca, 'Color', [255,165,0]./255)
 %colormap(mycmap);
 %caxis([params.distanceToPool-10 params.distanceToPool+10 ])
 xlabel('Trebuchet pin angle (degrees)', 'FontSize', 20)
-ylabel('Rider mass (kg)', 'FontSize', 20)
+ylabel('Rider mass [m3](kg)', 'FontSize', 20)
 title('Operating regimes', 'FontSize', 22)
 
 str=sprintf('m1=%.0fkg; m2=%.0fkg; l1=%.0fm; l2=%.0fm; l3=%.0fm\nTarget distance: %.0fm;   Error margin: +-%.0fm',...
