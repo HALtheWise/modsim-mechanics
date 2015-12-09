@@ -37,6 +37,15 @@ function [ fom ] = figuresOfMerit( Times, Stocks, params )
         fom.result = 'good shot';
     end
 
+    V3 =    [(-1).*p.l2.*sin(theta1).*theta1dot+(-1).*p.l3.*sin(theta2).*theta2dot, ...
+            p.l2.*cos(theta1).*theta1dot+p.l3.*cos(theta2).*theta2dot];
+    length(V3)
+    length(Times)
+    A3x = diff(V3(:,1)) ./ diff(Times);
+    A3y = diff(V3(:,2)) ./ diff(Times);
+    A3 = arrayfun(@(ax, ay) norm([ax ay+params.g]), A3x, A3y)
+    fom.accelerations = A3 / 9.8;
+    fom.maxAcceleration = max(fom.accelerations);
     
     totalFOMtime = totalFOMtime + toc; %Track the time in FOM calculations
 end
