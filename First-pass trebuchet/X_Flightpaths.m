@@ -1,0 +1,29 @@
+testMasses = [ 17; 22; 45; 90.55];
+testPinangles = [   -70.34, -70.34;
+                    -82.14, -51.93;
+                    -78.37, -26.76;
+                    -26.05, -26.05]*pi/180;
+colors = {[1 0 0], [.8 0 0], [.6 0 0], [.4 0 0]};
+% These points were pulled from the outer annulus of the graph (4m long landings)
+
+clf
+hold on
+for i = 1:length(testMasses)
+    mass = testMasses(i);
+    for j = 1:2
+        pinAngle = testPinangles(i, j);
+        params = parameters();
+        params.m3 = mass;
+        params.pinAngle = pinAngle;
+        [Times, Stocks] = simulate(params);
+        fom = figuresOfMerit(Times, Stocks, params);
+        if isempty(fom.baseballStocks)
+            continue
+        end
+        results{i,j} = plot(fom.baseballStocks(:,1), fom.baseballStocks(:,2), 'LineWidth', 5, 'Color', colors{i});
+        %pause
+    end
+    if isempty(fom.baseballStocks)
+        continue
+    end
+end
