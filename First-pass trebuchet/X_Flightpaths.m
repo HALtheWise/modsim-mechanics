@@ -1,5 +1,6 @@
-testMasses = [ 17; 22; 45; 90.55];
-testPinangles = [   -70.34, -70.34;
+testMasses = 32;
+testPinangles = [   -82.12, -39.79;
+                    -70.34, -70.34;
                     -82.14, -51.93;
                     -78.37, -26.76;
                     -26.05, -26.05]*pi/180;
@@ -20,10 +21,12 @@ for i = 1:length(testMasses)
         if isempty(fom.baseballStocks)
             continue
         end
-        results{i,j} = plot(fom.baseballStocks(:,1), fom.baseballStocks(:,2), 'LineWidth', 5, 'Color', colors{i});
+        results{i,j} = plot(fom.baseballStocks(:,1), fom.baseballStocks(:,2), 'LineWidth', 5);
         %pause
     end
     if isempty(fom.baseballStocks)
         continue
     end
 end
+
+legend({'Early release','Late release'});
