@@ -24,15 +24,15 @@ angles = frameStocks(:,1:2) * (180/pi);
 
 %% Set up first frame
 figure('Color', 'white', 'Position', [0 0 1920 1080])
-subplot(2,1,1)
-plot(frameTimes, angles, 'LineWidth', 2)
-hh1(1) = line(frameTimes(1), angles(1,1), 'Marker', '.', 'MarkerSize', 20, ...
-    'Color', 'b');
-hh1(2) = line(frameTimes(1), angles(1,2), 'Marker', '.', 'MarkerSize', 20, ...
-    'Color', 'r');
-xlabel('time (sec)')
-ylabel('angle (deg)')
-subplot(2,1,2)
+%subplot(2,1,1)
+%plot(frameTimes, angles, 'LineWidth', 2)
+%hh1(1) = line(frameTimes(1), angles(1,1), 'Marker', '.', 'MarkerSize', 20, ...
+%    'Color', 'b');
+%hh1(2) = line(frameTimes(1), angles(1,2), 'Marker', '.', 'MarkerSize', 20, ...
+%    'Color', 'r');
+%xlabel('time (sec)')
+%ylabel('angle (deg)')
+%subplot(2,1,2)
 hh2 = plot([x(1,1), x(1,2), x(1,3);x(1,2), x(1,3), x(1,4)], [y(1,1), y(1,2), y(1,3);y(1,2), y(1,3), y(1,4)], ...
     '.-', 'MarkerSize', 20, 'LineWidth', 2);
 axis equal
@@ -51,8 +51,8 @@ F(length(frameTimes)) = struct('cdata',[],'colormap',[]);
 %% Loop through by changing XData and YData
 for id = 1:length(frameTimes)
     % Update graphics data. This is more efficient than recreating plots.
-    set(hh1(1), 'XData', frameTimes(id), 'YData', angles(id, 1))
-    set(hh1(2), 'XData', frameTimes(id), 'YData', angles(id, 2))
+%    set(hh1(1), 'XData', frameTimes(id), 'YData', angles(id, 1))
+%    set(hh1(2), 'XData', frameTimes(id), 'YData', angles(id, 2))
     set(hh2(1), 'XData', [x(id, 1), x(id, 2)], 'YData', [y(id, 1), y(id, 2)])
     set(hh2(2), 'XData', [x(id, 2), x(id, 3)], 'YData', [y(id, 2), y(id, 3)])
     set(hh2(3), 'XData', [x(id, 3), x(id, 4)], 'YData', [y(id, 3), y(id, 4)])
