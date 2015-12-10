@@ -21,7 +21,7 @@ for i = 1:length(testMasses)
         if isempty(fom.baseballStocks)
             continue
         end
-        results{i,j} = plot(fom.baseballStocks(:,1), fom.baseballStocks(:,2), 'LineWidth', 5);
+        results{i,j} = plot(fom.baseballStocks(:,1), fom.baseballStocks(:,2) + params.pivotHeight, 'LineWidth', 5);
         %pause
     end
     if isempty(fom.baseballStocks)
@@ -30,3 +30,9 @@ for i = 1:length(testMasses)
 end
 
 legend({'Early release','Late release'});
+xlabel('Downrange distance (m)', 'FontSize', 20)
+ylabel('Altitude (m)', 'FontSize', 20)
+ylim([0 160])
+title('Flight path options', 'FontSize', 20)
+
+text(10, 8, 'Rider mass: 32kg', 'FontSize', 17);
